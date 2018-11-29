@@ -9,7 +9,12 @@ import { Header } from "../../shared/header"
 import { color, spacing } from "../../../theme"
 import { bowserLogo } from "./"
 
-const FULL: ViewStyle = { flex: 1 }
+const FULL: ViewStyle = {
+  flex: 1,
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+}
 const CONTAINER: ViewStyle = { 
   backgroundColor: color.transparent,
   paddingHorizontal: spacing[4],
@@ -88,38 +93,8 @@ export class FirstExampleScreen extends React.Component<FirstExampleScreenProps,
       <View style={FULL}>
         <StatusBar barStyle="light-content" />      
         <Wallpaper />
-        <SafeAreaView style={FULL}>
-          <Screen style={CONTAINER} backgroundColor={color.transparent} preset="scrollStack">
-            <Header
-              headerTx="firstExampleScreen.poweredBy"
-              style={HEADER}
-              titleStyle={HEADER_TITLE}
-            />
-            <Text style={TITLE_WRAPPER}> 
-              <Text style={TITLE} text="Your new app, " />
-              <Text style={ALMOST} text="almost" />
-              <Text style={TITLE} text="!" />
-            </Text>
-            <Text style={TITLE} preset="header" tx="firstExampleScreen.readyForLaunch" />          
-            <Image source={bowserLogo} style={BOWSER} />
-            <Text style={CONTENT}>
-              This probably isn't what your app is going to look like. Unless your designer handed you this screen and, in that case, congrats! You're ready to ship.
-            </Text>
-            <Text style={CONTENT}>
-              For everyone else, this is where you'll see a live preview of your fully functioning app using Ignite.
-            </Text>
-          </Screen>
-        </SafeAreaView>
-        <SafeAreaView style={FOOTER}>
-          <View style={FOOTER_CONTENT}>
-            <Button
-              style={CONTINUE}
-              textStyle={CONTINUE_TEXT}
-              tx="firstExampleScreen.continue"
-              onPress={this.nextScreen}
-              />
-          </View>
-        </SafeAreaView>
+        <Text>Hello World</Text>
+        <Text>Nuria and Ricki</Text>
       </View>
     )
   }
