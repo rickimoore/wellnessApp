@@ -1,11 +1,13 @@
 import { types } from "mobx-state-tree"
 import { NavigationStoreModel } from "../navigation/navigation-store"
+import { UiStateStore } from "../stores"
 
 /**
  * An RootStore model.
  */
 export const RootStoreModel = types.model("RootStore").props({
-  navigationStore: types.optional(NavigationStoreModel, {}),
+    uiStateStore: types.optional(UiStateStore, {}),
+    navigationStore: types.optional(NavigationStoreModel, {}),
 })
 
 /**

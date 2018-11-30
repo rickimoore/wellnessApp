@@ -1,9 +1,13 @@
 import { createStackNavigator } from "react-navigation"
-import { ExampleNavigator } from "./example-navigator"
+import { GameNavigator } from "./navigator"
+import {HomeScreen} from "../views/home-screen";
+import {AboutScreen} from "../views/about-screen/about-screen";
 
 export const RootNavigator = createStackNavigator(
   {
-    exampleStack: { screen: ExampleNavigator },
+    homeScreen: { screen: HomeScreen},
+    aboutScreen: { screen: AboutScreen},
+    gameStack: { screen: GameNavigator }
   },
   {
     headerMode: "none",
