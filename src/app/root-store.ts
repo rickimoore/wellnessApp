@@ -1,12 +1,14 @@
 import { types } from "mobx-state-tree"
 import { NavigationStoreModel } from "../navigation/navigation-store"
 import { UiStateStore } from "../stores"
+import {GameStateStore} from "../stores/game-state-store";
 
 /**
  * An RootStore model.
  */
 export const RootStoreModel = types.model("RootStore").props({
     uiStateStore: types.optional(UiStateStore, {}),
+    gameStateStore: types.optional(GameStateStore, { gameTimer: 0 }),
     navigationStore: types.optional(NavigationStoreModel, {}),
 })
 
