@@ -13,6 +13,7 @@ import { inject, observer } from "mobx-react/native"
 import { UiStateStore } from "../../stores"
 import { Wallpaper } from "../shared/wallpaper";
 import {NavigationScreenProps} from "react-navigation";
+import {color} from "../../theme";
 // import { Icon } from "../shared/icon"
 // import { translate } from "../../i18n"
 
@@ -33,7 +34,6 @@ export class InstructionsModal extends React.Component<InstructionsModalProps, {
         const store = this.props.uiStateStore
         return (
             <Modal animationType="slide" visible={store.isInstructionModal} onRequestClose={() => {}}>
-                <Wallpaper />
                 <SafeAreaView style={styles.page}>
                     <View style={styles.pageHeader}>
                         <TouchableOpacity style={styles.exitIcon} onPress={() => store.hideInstructions()}>
@@ -61,9 +61,7 @@ export class InstructionsModal extends React.Component<InstructionsModalProps, {
 
 const styles = StyleSheet.create({
     page: {
-        marginLeft: 20,
-        marginRight: 20,
-        marginTop: 20,
+        backgroundColor: color.palette.pastelDarkPink,
         flexDirection: "column",
         justifyContent: "flex-end",
         flex: 1,

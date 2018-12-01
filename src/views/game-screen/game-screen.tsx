@@ -7,6 +7,7 @@ import { Wallpaper } from "../shared/wallpaper/index"
 import { GameOverModal } from "../modals/game-over";
 import {UiStateStore} from "../../stores/ui-state-store";
 import {inject, observer} from "mobx-react/native";
+import {Screen} from "../shared/screen";
 
 export interface GameScreenProps extends NavigationScreenProps<{}> {
     uiStateStore: UiStateStore
@@ -18,14 +19,13 @@ export class GameScreen extends React.Component<GameScreenProps, {}> {
   goBack = () => this.props.navigation.goBack(null)
   render() {
     return (
-      <View style={styles.container}>
-        <Wallpaper />
+      <Screen style={styles.container}>
           <GameOverModal />
         <SafeAreaView style={styles.container}>
           <Text>Gameplay Level 1</Text>
           <Button onPress={() => this.goBack()} text={"Quit"}/>
         </SafeAreaView>
-      </View>
+      </Screen>
     )
   }
 }

@@ -3,11 +3,12 @@ import { View, StatusBar, StyleSheet } from "react-native"
 import { NavigationScreenProps } from "react-navigation"
 import { Text } from "../shared/text/index"
 import { Button } from "../shared/button/index"
-import { Wallpaper } from "../shared/wallpaper/index"
 import {UiStateStore} from "../../stores/ui-state-store";
 import { InstructionsModal } from "../modals/instructions";
 import {GameStateStore} from "../../stores/game-state-store";
 import {inject, observer} from "mobx-react/native";
+import {color} from "../../theme";
+import {Screen} from "../shared/screen";
 
 // import { color, spacing } from "../../../theme"
 
@@ -30,17 +31,16 @@ export class HomeScreen extends React.Component<HomeScreenProps, {}> {
 
   render() {
     return (
-      <View style={styles.container}>
+      <Screen style={styles.container}>
         <StatusBar barStyle="light-content" />
         <InstructionsModal/>
-        <Wallpaper />
         <Text>Tinder Strike</Text>
           <View style={styles.actionBox}>
               <Button style={styles.actionButton} onPress={() => this.startGame()} text={"Play Game"}/>
               <Button style={styles.actionButton} onPress={() => this.viewInstructions()} text={"Instructions"}/>
               <Button style={styles.actionButton} onPress={() => this.viewScreen("aboutScreen")} text={"About"}/>
           </View>
-      </View>
+      </Screen>
     )
   }
 }
@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        backgroundColor: color.background
     },
     actionBox: {
         flexDirection: "column",

@@ -11,8 +11,8 @@ import { Text } from "../shared/text"
 import { Button } from "../shared/button"
 import { inject, observer } from "mobx-react/native"
 import { UiStateStore } from "../../stores"
-import { Wallpaper } from "../shared/wallpaper";
 import {NavigationScreenProps} from "react-navigation";
+import {color} from "../../theme";
 // import { Icon } from "../shared/icon"
 // import { translate } from "../../i18n"
 
@@ -33,7 +33,6 @@ export class GameOverModal extends React.Component<GameOverModalProps, {}> {
         const store = this.props.uiStateStore
         return (
             <Modal animationType="slide" visible={store.isGameOverModal} onRequestClose={() => {}}>
-                <Wallpaper />
                 <SafeAreaView style={styles.page}>
                     <View style={styles.pageHeader}>
                         <TouchableOpacity style={styles.exitIcon} onPress={() => store.hideGameOver()}>
@@ -61,12 +60,10 @@ export class GameOverModal extends React.Component<GameOverModalProps, {}> {
 
 const styles = StyleSheet.create({
     page: {
-        marginLeft: 20,
-        marginRight: 20,
-        marginTop: 20,
         flexDirection: "column",
         justifyContent: "flex-end",
         flex: 1,
+        backgroundColor: color.palette.pastelDarkPink
     },
     pageHeader: {
         flexDirection: "column",
