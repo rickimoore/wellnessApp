@@ -1,5 +1,5 @@
 import * as React from "react"
-import {View, SafeAreaView, StyleSheet} from "react-native"
+import {SafeAreaView, StyleSheet} from "react-native"
 import { NavigationScreenProps } from "react-navigation"
 import { Text } from "../shared/text/index"
 import { Button } from "../shared/button/index"

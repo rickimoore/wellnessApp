@@ -21,13 +21,12 @@ export interface HomeScreenProps extends NavigationScreenProps<{}> {
 @observer
 export class HomeScreen extends React.Component<HomeScreenProps, {}> {
   startGame = () => {
-      const store = this.props.gameStateStore
-      this.props.navigation.navigate("gameScreen")
-      setTimeout(() => store.endGame(), 3000)
+      this.props.gameStateStore.startGame(
+          () => this.props.navigation.navigate("gameScreen")
+      )
   }
   viewScreen = (screen) => this.props.navigation.navigate(screen)
   viewInstructions = () => this.props.uiStateStore.showInstructions()
-
 
   render() {
     return (
