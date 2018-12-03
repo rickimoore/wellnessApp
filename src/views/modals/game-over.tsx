@@ -13,14 +13,17 @@ import { inject, observer } from "mobx-react/native"
 import { UiStateStore } from "../../stores"
 import {NavigationScreenProps} from "react-navigation";
 import {color} from "../../theme";
+import {GameStateStore} from "../../stores/game-state-store";
 // import { Icon } from "../shared/icon"
 // import { translate } from "../../i18n"
 
 export interface GameOverModalProps extends NavigationScreenProps<{}>{
+    navCallBack: Function
     uiStateStore: UiStateStore
+    gameStateStore: GameStateStore
 }
 
-@inject("uiStateStore")
+@inject("uiStateStore", "gameStateStore")
 @observer
 export class GameOverModal extends React.Component<GameOverModalProps, {}> {
     componentDidMount() {
@@ -31,6 +34,7 @@ export class GameOverModal extends React.Component<GameOverModalProps, {}> {
     }
     render() {
         const store = this.props.uiStateStore
+        // const gameStore = this.props.gameStateStore
         return (
             <Modal animationType="slide" visible={store.isGameOverModal} onRequestClose={() => {}}>
                 <SafeAreaView style={styles.page}>
@@ -46,11 +50,17 @@ export class GameOverModal extends React.Component<GameOverModalProps, {}> {
                         You lose!
                     </Text>
                     <View style={styles.termActions}>
-                        <Button preset={"primary"} style={styles.actionButton} onPress={() => store.hideGameOver()}>
-                            <Text preset={"bold"} style={{ color: "white" }}>
-                                Play Again
-                            </Text>
+                        <Button preset={"primary"}
+                                style={styles.actionButton}
+                                text={"Play Again"}
+                                onPress={() => store.hideGameOver()}>
                         </Button>
+                        <Button style={styles.actionButton}
+                            text={"End Game"}
+                            onPress={() => {
+                                store.hideGameOver()
+                                this.props.navCallBack()
+                            }} />
                     </View>
                 </SafeAreaView>
             </Modal>
