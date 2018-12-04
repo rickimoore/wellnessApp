@@ -1,14 +1,22 @@
 import React, { PureComponent } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 
 const RADIUS = 20;
 
-export class Renderer extends PureComponent {
+
+interface RenderProps {
+    position: Array,
+    points: Number
+}
+
+export class Renderer extends PureComponent<RenderProps> {
     render() {
-        const x = this.props.position[0] - RADIUS / 2;
+        const x = this.props.position[0] - RADIUS;
         const y = this.props.position[1] - RADIUS / 2;
         return (
-            <View style={[styles.finger, { left: x, top: y }]} />
+            <View style={[styles.finger, { left: x, top: y }]}>
+                <Text>{this.props.points}</Text>
+            </View>
         );
     }
 }
