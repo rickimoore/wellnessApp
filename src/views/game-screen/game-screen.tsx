@@ -1,5 +1,5 @@
 import * as React from "react"
-import {StyleSheet} from "react-native"
+import {StyleSheet, Dimensions} from "react-native"
 import { NavigationScreenProps } from "react-navigation"
 import { Button } from "../shared/button/index"
 import { GameOverModal } from "../modals/game-over";
@@ -9,7 +9,6 @@ import {inject, observer} from "mobx-react/native";
 import { GameEngine } from "react-native-game-engine"
 import Systems from "../../systems";
 import {color} from "../../theme";
-import Match from "../renderings/match"
 import Clock from "../renderings/clock"
 
 export interface GameScreenProps extends NavigationScreenProps<{}> {
@@ -26,8 +25,18 @@ export class GameScreen extends React.Component<GameScreenProps, {}> {
       case "game-over":
           gameStore.endGame()
           break;
+        case "change-level":
+            gameStore.increaseLevel()
     }
   };
+  getCenterLine = () => {
+      const canvas  = Dimensions.get("screen");
+      return canvas.width / 2;
+  };
+  getHeight = () => {
+      const canvas = Dimensions.get("screen");
+      return canvas.height
+  }
   render() {
       const gameStore = this.props.gameStateStore
       return (
@@ -36,7 +45,13 @@ export class GameScreen extends React.Component<GameScreenProps, {}> {
               systems={Systems}
               running={gameStore.isGameRunning}
               onEvent={this.handleEvent}
-              entities={{match: Match("male", "1", [40,  200], []), clock: Clock(0, 0)}}>
+              entities={{
+                  game: {
+                      level: gameStore.level
+                  },
+                  clock: Clock(0, 0),
+                  canvas: {center: this.getCenterLine(), height: this.getHeight()}
+              }}>
               <GameOverModal navCallBack={()=>this.props.navigation.navigate("homeScreen")}/>
               <Button onPress={() => gameStore.endGame()} text={"Quit"}/>
           </GameEngine>
