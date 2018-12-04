@@ -2,9 +2,10 @@ let startTime = null
 let limit = 10000
 
 
-const startClock = (time) => {
+const startClock = (time, dispatch) => {
     if(startTime == null){
-        startTime = time.current
+        startTime = time.current;
+        dispatch({ type: "create-match" });
     }
     return time;
 };
@@ -23,10 +24,18 @@ const checkIfClockReachLimit = (time, dispatch) => {
     }
 }
 
+const addTime = (events, time, entities) => {
+    const event = events.find(e => e.type === 'add-time');
+    if(event){
+        limit += 2000
+    }
+}
 
-export default (entities, { time, dispatch }) => {
-    startClock(time);
+
+export default (entities, { time, dispatch, events }) => {
+    startClock(time, dispatch);
     tickClock(time, entities);
     checkIfClockReachLimit(time, dispatch);
+    addTime(events, time, entities);
     return entities;
 };

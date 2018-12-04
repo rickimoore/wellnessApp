@@ -7,14 +7,21 @@ export const GameStateStore = types
     .props({
         isGameRunning: types.boolean,
         attributes: types.maybe(AttributesModel),
+        level: types.optional(types.number, 1),
         matches: types.maybe(MatchModel)
     })
     .actions(self => {
         return {
+            increaseLevel() {
+                self.level = self.level + 1
+            }
+        }
+    })
+    .actions(self => {
+        return {
             endGame(): void {
-                const uiStore = getRoot<RootStore>(self).uiStateStore
-                self.isGameRunning = false
-                self.gameTimer = 0
+                const uiStore = getRoot<RootStore>(self).uiStateStore;
+                self.isGameRunning = false;
                 uiStore.showGameOver()
             },
             startGame(callBack): void {
@@ -22,6 +29,6 @@ export const GameStateStore = types
                 callBack()
             }
         }
-    })
+    });
 
 export type GameStateStore = typeof GameStateStore.Type
