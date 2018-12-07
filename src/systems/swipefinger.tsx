@@ -1,12 +1,17 @@
+const calculateSwipe = (position, center) => {
+    return position < center ? "swipe-left" : "swipe-right"
+}
+
 const swipeFinger = (entities, touches) => {
 
     touches.filter(t => t.type === "move").forEach(t => {
-        let finger = entities.match;
-        if (finger && finger.position) {
-            finger.position = [
-                finger.position[0] + t.delta.pageX,
-                finger.position[1] + t.delta.pageY
+        let match = entities.match;
+        if (match && match.position) {
+            match.position = [
+                match.position[0] + t.delta.pageX,
+                match.position[1] + t.delta.pageY
             ];
+            match.status = calculateSwipe(t.event.pageX, entities.canvas.center)
         }
     });
 
@@ -16,15 +21,8 @@ const swipeFinger = (entities, touches) => {
 const endSwipe = (entities, touches, dispatch) => {
     const finish = touches.find(t => t.type === "end");
     if (finish) {
-        const xAxis = finish.event.pageX;
-        const center = entities.canvas.center;
-
-        if(xAxis < center) {
-            dispatch({ type: "swipe-left" });
-        }
-        if(xAxis > center){
-            dispatch({ type: "swipe-right" });
-        }
+        const swipe = calculateSwipe(finish.event.pageX, entities.canvas.center);
+        dispatch({ type: swipe });
     }
 }
 
