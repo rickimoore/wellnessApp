@@ -8,7 +8,7 @@ import {GameStateStore} from "../stores/game-state-store";
  */
 export const RootStoreModel = types.model("RootStore").props({
     uiStateStore: types.optional(UiStateStore, {}),
-    gameStateStore: types.optional(GameStateStore, { isGameRunning: false }),
+    gameStateStore: types.optional(GameStateStore, { isGameRunning: false, gameLevel: 1, score: 0 }),
     navigationStore: types.optional(NavigationStoreModel, {}),
 })
 
