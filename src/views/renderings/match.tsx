@@ -1,7 +1,8 @@
 import React, { PureComponent } from "react";
 import { StyleSheet, View, Text } from "react-native";
+import { displayAttributes } from "../../utils";
 
-const RADIUS = 20;
+const RADIUS = 100;
 
 
 interface RenderProps {
@@ -15,7 +16,10 @@ export class Renderer extends PureComponent<RenderProps> {
         const y = this.props.position[1] - RADIUS / 2;
         return (
             <View style={[styles.finger, { left: x, top: y }]}>
-                <Text>{this.props.points}</Text>
+                <Text>{this.props.status}</Text>
+                <View style={styles.attributesContainer}>
+                    {displayAttributes(this.props.attributes)}
+                </View>
             </View>
         );
     }
@@ -25,11 +29,16 @@ const styles = StyleSheet.create({
     finger: {
         borderColor: "#CCC",
         borderWidth: 4,
-        borderRadius: RADIUS * 2,
         width: RADIUS * 2,
         height: RADIUS * 2,
         backgroundColor: "pink",
         position: "absolute"
+    },
+    attributesContainer: {
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
     }
 });
 
