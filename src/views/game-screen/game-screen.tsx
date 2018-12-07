@@ -9,8 +9,7 @@ import {inject, observer} from "mobx-react/native";
 import { GameEngine } from "react-native-game-engine"
 import Systems from "../../systems";
 import {color} from "../../theme";
-import Clock from "../renderings/clock"
-
+import Level from "../../levels/basic"
 export interface GameScreenProps extends NavigationScreenProps<{}> {
     uiStateStore: UiStateStore
     gameStateStore: GameStateStore
@@ -27,32 +26,26 @@ export class GameScreen extends React.Component<GameScreenProps, {}> {
           break;
         case "change-level":
             gameStore.increaseLevel()
+            break;
+        case "add-points":
+            gameStore.addPoints(ev.amount)
     }
   };
-  getCenterLine = () => {
-      const canvas  = Dimensions.get("screen");
-      return canvas.width / 2;
+  restart = () => {
+      const gameStore = this.props.gameStateStore
+      gameStore.startGame(() => this.refs.engine.swap(Level(gameStore.gameLevel, gameStore.score)))
   };
-  getHeight = () => {
-      const canvas = Dimensions.get("screen");
-      return canvas.height
-  }
   render() {
       const gameStore = this.props.gameStateStore
       return (
           <GameEngine
+              ref={"engine"}
               style={styles.container}
               systems={Systems}
               running={gameStore.isGameRunning}
               onEvent={this.handleEvent}
-              entities={{
-                  game: {
-                      level: gameStore.level
-                  },
-                  clock: Clock(0, 0),
-                  canvas: {center: this.getCenterLine(), height: this.getHeight()}
-              }}>
-              <GameOverModal navCallBack={()=>this.props.navigation.navigate("homeScreen")}/>
+              entities={Level(gameStore.gameLevel, gameStore.score)}>
+              <GameOverModal restart={() => this.restart()} navCallBack={()=>this.props.navigation.navigate("homeScreen")}/>
               <Button onPress={() => gameStore.endGame()} text={"Quit"}/>
           </GameEngine>
       )
