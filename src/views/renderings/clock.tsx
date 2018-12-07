@@ -1,16 +1,16 @@
 import React, { PureComponent } from "react";
 import { StyleSheet, View, Text } from "react-native";
 
-export class Renderer extends PureComponent {
+class Renderer extends PureComponent {
     msToSeconds = (ms) => parseInt(((ms % 60000) / 1000).toFixed(0));
-    displayTimer = (time, limit) => {
+    displayTimer = (time = 0, limit) => {
         const remainder = this.msToSeconds(limit - time);
         return remainder > 0 ? (remainder < 10 ? '0': '') + remainder : '00'
     }
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.display}>{this.displayTimer(this.props.display, this.props.limit)}</Text>
+                <Text style={styles.display}>{this.displayTimer(this.props.timeDisplay, this.props.limit)}</Text>
             </View>
         );
     }
@@ -33,10 +33,11 @@ const styles = StyleSheet.create({
     }
 });
 
-export default (time, limit) => {
+export default (time, timeDisplay,limit) => {
     return {
         limit: limit,
-        display: time,
+        time: time,
+        timeDisplay: timeDisplay,
         renderer: <Renderer />
     };
 };
