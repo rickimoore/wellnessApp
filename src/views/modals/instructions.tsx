@@ -63,7 +63,8 @@ const styles = StyleSheet.create({
     page: {
         backgroundColor: color.palette.pastelDarkPink,
         flexDirection: "column",
-        justifyContent: "flex-end",
+        justifyContent: "center",
+        alignItems: "center",
         flex: 1,
     },
     pageHeader: {
