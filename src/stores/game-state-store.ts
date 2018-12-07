@@ -7,13 +7,17 @@ export const GameStateStore = types
     .props({
         isGameRunning: types.boolean,
         attributes: types.maybe(AttributesModel),
-        level: types.optional(types.number, 1),
+        score: types.number,
+        gameLevel: types.number,
         matches: types.maybe(MatchModel)
     })
     .actions(self => {
         return {
             increaseLevel() {
-                self.level = self.level + 1
+                self.gameLevel = self.gameLevel + 1
+            },
+            addPoints (points) {
+                self.score += points
             }
         }
     })
