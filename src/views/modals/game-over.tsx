@@ -19,6 +19,7 @@ import {GameStateStore} from "../../stores/game-state-store";
 
 export interface GameOverModalProps extends NavigationScreenProps<{}>{
     navCallBack: Function
+    restart: Function
     uiStateStore: UiStateStore
     gameStateStore: GameStateStore
 }
@@ -32,6 +33,10 @@ export class GameOverModal extends React.Component<GameOverModalProps, {}> {
     componentWillUnmount() {
         BackHandler.removeEventListener("hardwareBackPress", () => true)
     }
+    handleRestart = () => {
+        this.props.restart();
+        this.props.uiStateStore.hideGameOver()
+    };
     render() {
         const store = this.props.uiStateStore
         // const gameStore = this.props.gameStateStore
@@ -53,7 +58,7 @@ export class GameOverModal extends React.Component<GameOverModalProps, {}> {
                         <Button preset={"primary"}
                                 style={styles.actionButton}
                                 text={"Play Again"}
-                                onPress={() => store.hideGameOver()}>
+                                onPress={() => this.handleRestart()}>
                         </Button>
                         <Button style={styles.actionButton}
                             text={"End Game"}
@@ -71,7 +76,8 @@ export class GameOverModal extends React.Component<GameOverModalProps, {}> {
 const styles = StyleSheet.create({
     page: {
         flexDirection: "column",
-        justifyContent: "flex-end",
+        justifyContent: "center",
+        alignItems: "center",
         flex: 1,
         backgroundColor: color.palette.pastelDarkPink
     },
