@@ -24,8 +24,9 @@ export class GameScreen extends React.Component<GameScreenProps, {}> {
       case "game-over":
           gameStore.endGame()
           break;
-        case "change-level":
+        case "increase-level":
             gameStore.increaseLevel()
+            this.refs.engine.swap(Level(gameStore.gameLevel, gameStore.score, ev.time));
             break;
         case "add-points":
             gameStore.addPoints(ev.amount)
@@ -33,7 +34,7 @@ export class GameScreen extends React.Component<GameScreenProps, {}> {
   };
   restart = () => {
       const gameStore = this.props.gameStateStore
-      gameStore.startGame(() => this.refs.engine.swap(Level(gameStore.gameLevel, gameStore.score)))
+      gameStore.startGame(() => this.refs.engine.swap(Level(gameStore.gameLevel, gameStore.score, null)))
   };
   render() {
       const gameStore = this.props.gameStateStore
@@ -44,7 +45,7 @@ export class GameScreen extends React.Component<GameScreenProps, {}> {
               systems={Systems}
               running={gameStore.isGameRunning}
               onEvent={this.handleEvent}
-              entities={Level(gameStore.gameLevel, gameStore.score)}>
+              entities={Level(gameStore.gameLevel, gameStore.score, null)}>
               <GameOverModal restart={() => this.restart()} navCallBack={()=>this.props.navigation.navigate("homeScreen")}/>
               <Button onPress={() => gameStore.endGame()} text={"Quit"}/>
           </GameEngine>

@@ -26,8 +26,10 @@ const styles = StyleSheet.create({
     }
 });
 
-export default (points) => {
+export default (level, points, volley) => {
     return {
+        level: level,
+        volley: volley,
         score: points,
         renderer: <Renderer />
     };

@@ -13,11 +13,18 @@ const getHeight = () => {
     return canvas.height
 }
 
-export default (level, score) => {
+export default (level, score, time) => {
+    let display = 10000, limit = 10000;
+
+    if(time){
+        display += time;
+        limit += time;
+    }
+
     return {
         avatar: Avatar("male", createAttribute(level)),
-        clock: Clock(null, 10000, 10000),
-        scoreBoard: ScoreBoard(score),
+        clock: Clock(null, display, limit),
+        scoreBoard: ScoreBoard(level, score, 0),
         canvas: {center: getCenterLine(), height: getHeight()}
     }
 }

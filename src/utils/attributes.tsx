@@ -1,5 +1,5 @@
 import React from "react";
-import {StyleSheet, Text} from "react-native";
+import {View, StyleSheet, Text} from "react-native";
 const attributes = [
     'x', 'o','p', 'y','w'
 ];
@@ -43,15 +43,20 @@ export function  createAttribute (count) {
 
 export function displayAttributes (attributes) {
     return (
-        attributes.map((att, index) => (
-            <Text key={index} style={styles.display}>
-                {att}
-            </Text>
-        ))
+        <View style={styles.displayContainer}>
+            {
+                attributes.map((att, index) => (
+                    <Text key={index} style={styles.display}>
+                        {att}
+                    </Text>
+                ))
+            }
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
-    display: {color: "white", fontSize: 44, textAlign: "center"}
+    displayContainer: {flexDirection: "row"},
+    display: {color: "white", fontSize: 44, textAlign: "center", marginLeft: 10}
 });
 

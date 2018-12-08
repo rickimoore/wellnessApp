@@ -45,6 +45,6 @@ const matchRight = (events, entities, dispatch) => {
 export default (entities, { events, dispatch }) => {
     matchLeft(events, entities, dispatch);
     matchRight(events, entities, dispatch);
-    createMatch(events, entities, dispatch);
+    createMatch(events, entities);
     return entities;
 };

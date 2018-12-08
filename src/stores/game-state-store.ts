@@ -26,6 +26,7 @@ export const GameStateStore = types
             endGame(): void {
                 const uiStore = getRoot<RootStore>(self).uiStateStore;
                 self.isGameRunning = false;
+                self.gameLevel = 1;
                 uiStore.showGameOver()
             },
             startGame(callBack): void {
