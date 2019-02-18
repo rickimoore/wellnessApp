@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Icons/Bag + Highlight</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M3.5,6.5 C3.5,2.91014913 6.41014913,6.66133815e-16 10,0 C13.5898509,-1.11022302e-15 16.5,2.91014913 16.5,6.5 L17,6.5 C18.6568542,6.5 20,7.84314575 20,9.5 L18,19.5 C18,21.1568542 16.6568542,22.5 15,22.5 L5,22.5 C3.34314575,22.5 2,21.1568542 2,19.5 L0,9.5 C-2.22044605e-16,7.84314575 1.34314575,6.5 3,6.5 L3.5,6.5 Z M6.5,6.5 L13.5,6.5 C13.5,4.56700338 11.9329966,3 10,3 C8.06700338,3 6.5,4.56700338 6.5,6.5 Z" id="path-1"></path>
+        <circle id="path-3" cx="5" cy="5" r="5"></circle>
+    </defs>
+    <g id="Icons/Bag-+-Highlight" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFFFFF" x="0" y="0" width="26" height="26"></rect>
+        <g id="Group" transform="translate(3.000000, 2.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Shape" fill-rule="nonzero"></g>
+            <g id="Colors/Black" mask="url(#mask-2)" fill="#22242A">
+                <g transform="translate(-3.000000, -2.000000)" id="Color">
+                    <rect x="0" y="0" width="26" height="26"></rect>
+                </g>
+            </g>
+        </g>
+        <g id="no" transform="translate(16.000000, 0.000000)">
+            <mask id="mask-4" fill="white">
+                <use xlink:href="#path-3"></use>
+            </mask>
+            <use id="Mask" fill="#D8D8D8" fill-rule="nonzero" xlink:href="#path-3"></use>
+            <g id="Colors/Accent-6" mask="url(#mask-4)" fill="#FF3B30">
+                <rect id="Color" x="0" y="0" width="10" height="10"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,1 @@
+export function msToSeconds (ms) { return parseInt(((ms % 60000) / 1000).toFixed(0)) }

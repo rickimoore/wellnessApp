@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Icons/Heart + No.</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M22,6.90182572 C22,8.62626157 21.341782,10.2800244 20.1703881,11.4989325 L12.3581913,19.6318257 C11.6079411,20.4128743 10.3915451,20.4128743 9.64129483,19.6318257 L1.82909808,11.4989325 C-0.609699384,8.96002051 -0.609699355,4.84363094 1.82909814,2.30471899 C4.26789564,-0.234192949 8.22196762,-0.234192979 10.6607652,2.30471894 L10.9997431,2.65761217 L11.3385616,2.30488492 C12.5095651,1.08523847 14.0981167,0.400000095 15.7545545,0.400000095 C17.4109172,0.400000095 18.9993999,1.0851763 20.1703881,2.30471892 C21.3418417,3.5237771 22,5.1774681 22,6.90182572 Z" id="path-1"></path>
+        <circle id="path-3" cx="5" cy="5" r="5"></circle>
+    </defs>
+    <g id="Icons/Heart-+-No." stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFFFFF" x="0" y="0" width="26" height="26"></rect>
+        <g id="heart" transform="translate(2.000000, 3.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Shape" fill-rule="nonzero"></g>
+            <g id="Colors/Black" mask="url(#mask-2)" fill="#22242A">
+                <g transform="translate(-2.000000, -3.000000)" id="Color">
+                    <rect x="0" y="0" width="26" height="26"></rect>
+                </g>
+            </g>
+        </g>
+        <g id="no" transform="translate(16.000000, 0.000000)">
+            <mask id="mask-4" fill="white">
+                <use xlink:href="#path-3"></use>
+            </mask>
+            <use id="Mask" fill="#D8D8D8" fill-rule="nonzero" xlink:href="#path-3"></use>
+            <g id="Colors/Accent-6" mask="url(#mask-4)" fill="#FF3B30">
+                <rect id="Color" x="0" y="0" width="10" height="10"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

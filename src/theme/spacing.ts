@@ -38,13 +38,4 @@
  * 7 = huge    - ?
  * 8 = massive - an uncomfortable amount of whitespace
  */
-export const spacing = {
-    none: 0,
-    tiny: 3,
-    xSmall: 8,
-    small: 15,
-    medium: 20,
-    mediumLarge: 32,
-    Large: 47,
-    xLarge: 64,
-}
+export const spacing = [0, 4, 8, 12, 16, 24, 32, 48, 64]

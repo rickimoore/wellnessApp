@@ -1,16 +1,15 @@
 import { createStackNavigator } from "react-navigation"
-import { GameNavigator } from "./navigator"
-import {HomeScreen} from "../views/home-screen";
-import {AboutScreen} from "../views/about-screen/about-screen";
+import { AppNavigator } from "./app-nav";
+import { OnboardingScreen } from "../views/onboarding/onboardingScreen";
 
 export const RootNavigator = createStackNavigator(
   {
-    homeScreen: { screen: HomeScreen},
-    aboutScreen: { screen: AboutScreen},
-    gameStack: { screen: GameNavigator }
+      onBoarding: { screen: OnboardingScreen},
+      mainStack: { screen:  AppNavigator},
   },
   {
     headerMode: "none",
+    initialRouteName: "onBoarding",
     navigationOptions: { gesturesEnabled: false },
   },
 )

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Icons/Chat</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M17.5857864,20 L6,20 C4.34314575,20 3,18.6568542 3,17 L3,7 C3,5.34314575 4.34314575,4 6,4 L20,4 C21.6568542,4 23,5.34314575 23,7 L23,23 C23,23.8909049 21.9228581,24.3370716 21.2928932,23.7071068 L17.5857864,20 Z" id="path-1"></path>
+    </defs>
+    <g id="Icons/Chat" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFFFFF" x="0" y="0" width="26" height="26"></rect>
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="Shape" fill-rule="nonzero"></g>
+        <g id="Colors/Black" mask="url(#mask-2)" fill="#22242A">
+            <rect id="Color" x="0" y="0" width="26" height="26"></rect>
+        </g>
+    </g>
+</svg>

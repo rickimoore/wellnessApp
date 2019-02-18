@@ -57,8 +57,10 @@ export class RootComponent extends React.Component<{}, RootComponentState> {
 
     // --- am: begin list of stores ---
     const otherStores = {
-      uiStateStore: rootStore.uiStateStore,
-      gameStateStore: rootStore.gameStateStore
+        onBoardingStore: rootStore.onBoardingStore,
+        agendaStore: rootStore.agendaStore,
+        nutritionStore: rootStore.nutritionStore,
+        newsFeedStore: rootStore.newsFeedStore,
     }
     // --- am: end list of stores ---
 

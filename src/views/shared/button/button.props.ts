@@ -1,10 +1,14 @@
-import { ViewStyle, TextStyle, TouchableOpacityProps } from "react-native"
+import { ViewStyle, TextStyle, TouchableOpacityProperties } from "react-native"
 import { ButtonPresetNames } from "./button.presets"
+import {IconTypes} from "../icon/icons"
 
-export interface ButtonProps extends TouchableOpacityProps {
+export interface ButtonProps extends TouchableOpacityProperties {
+  icon?: IconTypes,
   /**
    * Text which is looked up via i18n.
    */
+  iconPosition?: string,
+
   tx?: string
 
   /**
@@ -15,12 +19,12 @@ export interface ButtonProps extends TouchableOpacityProps {
   /**
    * An optional style override useful for padding & margin.
    */
-  style?: ViewStyle | ViewStyle[]
+  style?: ViewStyle
 
   /**
    * An optional style override useful for the button text.
    */
-  textStyle?: TextStyle | TextStyle[]
+  textStyle?: TextStyle
 
   /**
    * One of the different types of text presets.

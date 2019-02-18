@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Icons/Back</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M16.5606602,7.56066017 L10.6213203,13.5 L16.5606602,19.4393398 C17.1464466,20.0251263 17.1464466,20.9748737 16.5606602,21.5606602 C15.9748737,22.1464466 15.0251263,22.1464466 14.4393398,21.5606602 L7.43933983,14.5606602 C6.85355339,13.9748737 6.85355339,13.0251263 7.43933983,12.4393398 L14.4393398,5.43933983 C15.0251263,4.85355339 15.9748737,4.85355339 16.5606602,5.43933983 C17.1464466,6.02512627 17.1464466,6.97487373 16.5606602,7.56066017 Z" id="path-1"></path>
+    </defs>
+    <g id="Icons/Back" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFFFFF" x="0" y="0" width="26" height="26"></rect>
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="Shape" fill-rule="nonzero"></g>
+        <g id="Colors/Black" mask="url(#mask-2)" fill="#22242A">
+            <rect id="Color" x="0" y="0" width="26" height="26"></rect>
+        </g>
+    </g>
+</svg>

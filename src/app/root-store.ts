@@ -1,15 +1,19 @@
 import { types } from "mobx-state-tree"
-import { NavigationStoreModel } from "../navigation/navigation-store"
-import { UiStateStore } from "../stores"
-import {GameStateStore} from "../stores/game-state-store";
+import { NavigationStoreModel } from "../navigation/navigation-store";
+import { onBoardingStore } from "../stores/onboarding";
+import { agendaStore } from "../stores/agendaStore";
+import { nutritionStore } from "../stores/nutritionStore";
+import { newsFeedStore } from "../stores/newsFeedStore";
 
 /**
  * An RootStore model.
  */
 export const RootStoreModel = types.model("RootStore").props({
-    uiStateStore: types.optional(UiStateStore, {}),
-    gameStateStore: types.optional(GameStateStore, { isGameRunning: false, gameLevel: 1, score: 0 }),
     navigationStore: types.optional(NavigationStoreModel, {}),
+    onBoardingStore: types.optional(onBoardingStore, {isValidatedUser: false}),
+    agendaStore: types.optional(agendaStore, {isActiveDayModal: false}),
+    nutritionStore: types.optional(nutritionStore, {}),
+    newsFeedStore: types.optional(newsFeedStore, { activeFeed: "list" })
 })
 
 /**

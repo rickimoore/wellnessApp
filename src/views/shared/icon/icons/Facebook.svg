@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Icons/Facebook</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M18.58255,5.43777669 L16.4091832,5.43910191 C14.7036204,5.43910191 14.3723145,6.24925529 14.3723145,7.43886438 L14.3723145,10.0614819 L18.4398676,10.0614819 L17.9102199,14.170117 L14.3723145,14.170117 L14.3723145,24.710504 L10.1302737,24.710504 L10.1302737,14.170117 L6.58265,14.170117 L6.58265,10.0614819 L10.1302737,10.0614819 L10.1302737,7.03246246 C10.1302737,3.51620242 12.277136,1.60169601 15.4134986,1.60169601 C16.9167439,1.60169601 18.20707,1.71345654 18.58255,1.76381504 L18.58255,5.43777669 Z" id="path-1"></path>
+    </defs>
+    <g id="Icons/Facebook" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFFFFF" x="0" y="0" width="26" height="26"></rect>
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Fill-1" fill="#231F20" xlink:href="#path-1"></use>
+        <g id="Colors/Black" mask="url(#mask-2)" fill="#22242A">
+            <rect id="Color" x="0" y="0" width="26" height="26"></rect>
+        </g>
+    </g>
+</svg>

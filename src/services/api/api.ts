@@ -1,7 +1,8 @@
-import { ApisauceInstance, create, ApiResponse } from "apisauce"
 import { getGeneralApiProblem } from "./api-problem"
 import { ApiConfig, DEFAULT_API_CONFIG } from "./api-config"
 import * as Types from "./api.types"
+import axios, { AxiosInstance } from "axios"
+
 
 /**
  * Manages all requests to the API.
@@ -10,7 +11,7 @@ export class Api {
   /**
    * The underlying apisauce instance which performs the requests.
    */
-  apisauce: ApisauceInstance
+  apisauce: AxiosInstance
 
   /**
    * Configurable options.
@@ -35,7 +36,7 @@ export class Api {
    */
   setup() {
     // construct the apisauce instance
-    this.apisauce = create({
+    this.apisauce = axios.create({
       baseURL: this.config.url,
       timeout: this.config.timeout,
       headers: {
@@ -47,31 +48,11 @@ export class Api {
   /**
    * Gets a list of users.
    */
-  async getUsers(): Promise<Types.GetUsersResult> {
+  async getRecipes(query) {
     // make the api call
-    const response: ApiResponse<any> = await this.apisauce.get(`/users`)
-
-    // the typical ways to die when calling an api
-    if (!response.ok) {
-      const problem = getGeneralApiProblem(response)
-      if (problem) return problem
-    }
-
-    const convertUser = raw => {
-      return {
-        id: raw.id,
-        name: raw.name,
-      }
-    }
-
-    // transform the data into the format we are expecting
-    try {
-      const rawUsers = response.data
-      const resultUsers: Types.User[] = rawUsers.map(convertUser)
-      return { kind: "ok", users: resultUsers }
-    } catch {
-      return { kind: "bad-data" }
-    }
+      return axios.get(this.config.url + `?q=${query}&app_id=${this.config.id}&app_key=${this.config.key}&diet=balanced`).catch((error) => {
+        console.log(error, "error---")
+      })
   }
 
   /**

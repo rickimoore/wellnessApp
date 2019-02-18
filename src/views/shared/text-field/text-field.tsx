@@ -8,7 +8,7 @@ import { reduce } from "ramda"
 
 // the base styling for the container
 const CONTAINER: ViewStyle = {
-  paddingVertical: spacing[3],
+  paddingVertical: spacing[1],
 }
 
 // the base styling for the TextInput

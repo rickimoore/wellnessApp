@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Icons/Tick</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M13,24 C6.92486775,24 2,19.0751322 2,13 C2,6.92486775 6.92486775,2 13,2 C19.0751322,2 24,6.92486775 24,13 C24,19.0751322 19.0751322,24 13,24 Z M16.2845116,8.91231345 L11.4210526,14.1926403 L9.71548843,12.3408849 C9.20913858,11.7911336 8.36980879,11.7911336 7.86345894,12.3408849 C7.37884702,12.867035 7.37884702,13.7043936 7.86345894,14.2305437 L10.4950379,17.0876865 C11.0013877,17.6374378 11.8407175,17.6374378 12.3470674,17.0876865 L18.1365411,10.8019723 C18.621153,10.2758222 18.621153,9.43846353 18.1365411,8.91231345 C17.6301912,8.36256218 16.7908614,8.36256218 16.2845116,8.91231345 Z" id="path-1"></path>
+    </defs>
+    <g id="Icons/Tick" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFFFFF" x="0" y="0" width="26" height="26"></rect>
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="Combined-Shape" fill-rule="nonzero"></g>
+        <g id="Colors/Black" mask="url(#mask-2)" fill="#22242A">
+            <rect id="Color" x="0" y="0" width="26" height="26"></rect>
+        </g>
+    </g>
+</svg>

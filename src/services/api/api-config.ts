@@ -9,6 +9,9 @@ export interface ApiConfig {
    */
   url: string
 
+  key: string,
+  id: string,
+
   /**
    * Milliseconds before we timeout the request.
    */
@@ -19,6 +22,8 @@ export interface ApiConfig {
  * The default configuration for the app.
  */
 export const DEFAULT_API_CONFIG: ApiConfig = {
-  url: env.API || "https://jsonplaceholder.typicode.com",
+  url: env.NUTRITION_URL,
+  key: env.NUTRITION_API_KEY,
+  id: env.API_ID,
   timeout: 10000,
 }

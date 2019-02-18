@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Icons/Zoom</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M16,8.30294373 L20.9514719,3.35147186 C21.420101,2.88284271 22.179899,2.88284271 22.6485281,3.35147186 C23.1171573,3.82010101 23.1171573,4.57989899 22.6485281,5.04852814 L17.6970563,10 L20.8,10 C21.4627417,10 22,10.5372583 22,11.2 C22,11.8627417 21.4627417,12.4 20.8,12.4 L14.8,12.4 C14.1372583,12.4 13.6,11.8627417 13.6,11.2 L13.6,5.2 C13.6,4.5372583 14.1372583,4 14.8,4 C15.4627417,4 16,4.5372583 16,5.2 L16,8.30294373 Z M10,17.6970563 L5.04852814,22.6485281 C4.57989899,23.1171573 3.82010101,23.1171573 3.35147186,22.6485281 C2.88284271,22.179899 2.88284271,21.420101 3.35147186,20.9514719 L8.30294373,16 L5.2,16 C4.5372583,16 4,15.4627417 4,14.8 C4,14.1372583 4.5372583,13.6 5.2,13.6 L11.2,13.6 C11.8627417,13.6 12.4,14.1372583 12.4,14.8 L12.4,20.8 C12.4,21.4627417 11.8627417,22 11.2,22 C10.5372583,22 10,21.4627417 10,20.8 L10,17.6970563 Z" id="path-1"></path>
+    </defs>
+    <g id="Icons/Zoom" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFFFFF" x="0" y="0" width="26" height="26"></rect>
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Mask" fill="#000000" fill-rule="nonzero" xlink:href="#path-1"></use>
+        <g id="Colors/Black" mask="url(#mask-2)" fill="#22242A">
+            <rect id="Color" x="0" y="0" width="26" height="26"></rect>
+        </g>
+    </g>
+</svg>

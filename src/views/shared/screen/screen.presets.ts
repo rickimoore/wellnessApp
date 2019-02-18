@@ -1,11 +1,10 @@
 import { ViewStyle, ScrollViewStyle } from "react-native"
-import { color } from "../../../theme"
 import { isEmpty, isNil } from "ramda"
 
 /**
  * The base shape & color.
  */
-const SHAPE: ScrollViewStyle = { backgroundColor: color.background, flex: 1 }
+const SHAPE: ScrollViewStyle = { flex: 1 }
 
 /**
  * Governs the default child layout.
