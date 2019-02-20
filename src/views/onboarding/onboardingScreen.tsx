@@ -5,14 +5,14 @@ import { Text } from "../shared/text"
 import { NavigationScreenProps } from "react-navigation"
 import { Screen } from "../shared/screen"
 import {color} from "../../theme"
-import { agendaStore } from "../../stores/agendaStore";
+import { userStore } from "../../stores/userStore";
 import { ImageCard } from "../shared/image-card";
 import { Button } from "../shared/button";
 import { TextField } from "../shared/text-field";
 
 
 export interface OnboardingScreenProps extends NavigationScreenProps<{}> {
-    agendaStore: agendaStore
+    userStore: userStore
 }
 
 
@@ -24,13 +24,98 @@ const SCREEN: ViewStyle = {
     // flex: 1,
 }
 
-@inject("agendaStore")
+@inject("userStore")
 @observer
-export class OnboardingScreen extends React.Component<OnboardingScreenProps, {}> {
+export class OnboardingScreen extends React.Component<OnboardingScreenProps, {email, password, name, password_confirmation, hasAccount}> {
     constructor(props){
         super(props)
         this.state = {
-            // chartState: false,
+            name: '',
+            email: '',
+            password: '',
+            password_confirmation: '',
+            hasAccount: false,
+        }
+    }
+    registerUser = () => {
+        this.props.userStore.registerUser({
+            name: this.state.name,
+            email: this.state.email,
+            password: this.state.password,
+            password_confirmation: this.state.password_confirmation
+        })
+    }
+    loginUser = async () => {
+        const store = this.props.userStore;
+        let result = await store.loginUser({
+            username: this.state.email,
+            password: this.state.password,
+        })
+
+        if (result) {
+            store.getUser().then(() => {
+                this.props.navigation.navigate("mainStack")
+            })
+        }
+    }
+    componentWillMount(){
+        if(this.props.userStore.user){
+            this.props.navigation.navigate("mainStack")
+        }
+    }
+    renderAuthentication () {
+        if(this.state.hasAccount){
+            return (
+                <View>
+                    <TextField style={styles.inputStyle}
+                               onChangeText={(email) => this.setState({email})}
+                               value={this.state.email}
+                               placeholder={"Your Email"} />
+                    <TextField style={styles.inputStyle}
+                               onChangeText={(password) => this.setState({password})}
+                               value={this.state.password}
+                               secureTextEntry={true} placeholder={"Password"} />
+                </View>
+            )
+
+        } else {
+            return (
+                <View>
+                    <TextField style={styles.inputStyle}
+                               onChangeText={(name) => this.setState({name})}
+                               value={this.state.name}
+                               placeholder={"Your Name"} />
+                    <TextField style={styles.inputStyle}
+                               onChangeText={(email) => this.setState({email})}
+                               value={this.state.email}
+                               placeholder={"Your Email"} />
+                    <TextField style={styles.inputStyle}
+                               onChangeText={(password) => this.setState({password})}
+                               value={this.state.password}
+                               secureTextEntry={true} placeholder={"Password"} />
+                    <TextField style={styles.inputStyle}
+                               onChangeText={(password_confirmation) => this.setState({password_confirmation})}
+                               value={this.state.password_confirmation}
+                               secureTextEntry={true} placeholder={"Confirm Password"} />
+                </View>
+            )
+        }
+    }
+    renderAuthActions () {
+        if(this.state.hasAccount){
+            return (
+              <View style={styles.onBoardingAction}>
+                  <Button onPress={() => this.loginUser()}  preset={"clear"} style={StyleSheet.flatten([styles.onBoardingBtn, styles.darkerBtn])} textStyle={styles.darkerText} text={"Login"}/>
+                  <Button style={styles.onboardOption} onPress={() => this.setState({hasAccount: false})} preset={"link"} text={"Create an account"}/>
+              </View>
+            )
+        } else {
+            return (
+                <View style={styles.onBoardingAction}>
+                    <Button onPress={() => this.registerUser()} style={styles.onBoardingBtn} text={"Create Account"}/>
+                    <Button style={styles.onboardOption} onPress={() => this.setState({hasAccount: true})} preset={"link"} text={"Already have an account?"}/>
+                </View>
+            )
         }
     }
     render () {
@@ -40,12 +125,8 @@ export class OnboardingScreen extends React.Component<OnboardingScreenProps, {}>
                     <Text style={styles.headerTextStyle}>Remedy your way back to health with connective care</Text>
                 </ImageCard>
                     <View style={styles.onBoardingContainer}>
-                    <TextField style={styles.inputStyle} placeholder={"Your Email"} />
-                    <TextField style={styles.inputStyle} secureTextEntry={true} placeholder={"Password"} />
-                    <View style={styles.onBoardingAction}>
-                        <Button onPress={() => this.props.navigation.navigate("mainStack")} style={styles.onBoardingBtn} text={"Create Account"}/>
-                        <Button onPress={() => this.props.navigation.navigate("mainStack")}  preset={"clear"} style={StyleSheet.flatten([styles.onBoardingBtn, styles.darkerBtn])} textStyle={styles.darkerText} text={"SignUp with Facebook"}/>
-                    </View>
+                        {this.renderAuthentication()}
+                        {this.renderAuthActions()}
                     <Text style={styles.terms}>Terms of Use and Privacy</Text>
                 </View>
             </Screen>
@@ -81,6 +162,9 @@ const styles = StyleSheet.create({
     },
     onBoardingAction: {
       marginTop: 25,
+    },
+    onboardOption: {
+        marginTop: 10,
     },
     onBoardingBtn: {
         marginTop: 10,

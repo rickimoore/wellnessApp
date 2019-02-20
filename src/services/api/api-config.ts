@@ -22,7 +22,7 @@ export interface ApiConfig {
  * The default configuration for the app.
  */
 export const DEFAULT_API_CONFIG: ApiConfig = {
-  url: env.NUTRITION_URL,
+  url: env.URL,
   key: env.NUTRITION_API_KEY,
   id: env.API_ID,
   timeout: 10000,

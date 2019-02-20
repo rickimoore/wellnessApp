@@ -39,6 +39,7 @@ export class FeedScreen extends React.Component<FeedScreenProps> {
         console.log(post)
 
         // store.setActiveFeed(post);
+        
     };
     generateItems = () => {
         const items = Array.from(Array(7).keys());
@@ -52,7 +53,7 @@ export class FeedScreen extends React.Component<FeedScreenProps> {
                                 <ImageCard style={{width: 120, height: 100}} image={test_images[randomInt]}/>
                                 <View style={styles.cardInfo}>
                                     <Text>Demo Post</Text>
-                                    <Text>{randomInt + 1} days ago</Text>
+                                    <Text style={{fontSize: 10}}>{randomInt + 1} days ago</Text>
                                 </View>
                             </View>
                         </View>

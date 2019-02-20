@@ -1,7 +1,7 @@
 import { types } from "mobx-state-tree"
 import { NavigationStoreModel } from "../navigation/navigation-store";
 import { onBoardingStore } from "../stores/onboarding";
-import { agendaStore } from "../stores/agendaStore";
+import { userStore } from "../stores/userStore";
 import { nutritionStore } from "../stores/nutritionStore";
 import { newsFeedStore } from "../stores/newsFeedStore";
 
@@ -11,7 +11,7 @@ import { newsFeedStore } from "../stores/newsFeedStore";
 export const RootStoreModel = types.model("RootStore").props({
     navigationStore: types.optional(NavigationStoreModel, {}),
     onBoardingStore: types.optional(onBoardingStore, {isValidatedUser: false}),
-    agendaStore: types.optional(agendaStore, {isActiveDayModal: false}),
+    userStore: types.optional(userStore, {}),
     nutritionStore: types.optional(nutritionStore, {}),
     newsFeedStore: types.optional(newsFeedStore, { activeFeed: "list" })
 })

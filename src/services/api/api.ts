@@ -59,25 +59,31 @@ export class Api {
    * Gets a single user by ID
    */
 
-  async getUser(id: string): Promise<Types.GetUserResult> {
+  async registerUser(data) {
     // make the api call
-    const response: ApiResponse<any> = await this.apisauce.get(`/users/${id}`)
+      return axios.post(this.config.url + "/register", data).catch((error) => {
+          console.log(error, "error---")
+      });
+  }
 
-    // the typical ways to die when calling an api
-    if (!response.ok) {
-      const problem = getGeneralApiProblem(response)
-      if (problem) return problem
+  async fetchUserToken(data) {
+        // make the api call
+        const formattedData = {
+            ...data, ...{
+                grant_type: 'password',
+                client_id: this.config.id.toString(),
+                client_secret: this.config.key.toString(),
+                scope: '*',
+            }
+        }
+        return axios.post(this.config.url + "/oauth/token", formattedData).catch((error) => {
+            console.log(error.response, "error---")
+        });
     }
 
-    // transform the data into the format we are expecting
-    try {
-      const resultUser: Types.User = {
-        id: response.data.id,
-        name: response.data.name,
-      }
-      return { kind: "ok", user: resultUser }
-    } catch {
-      return { kind: "bad-data" }
-    }
+  async fetchUser(accessToken){
+      return axios.get(this.config.url + "/api/user", {headers: {'Authorization': 'Bearer ' + accessToken}}).catch((error) => {
+          console.log(error.response, "error---")
+      });
   }
 }

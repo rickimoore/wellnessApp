@@ -28,6 +28,6 @@ declare var process: any
  * An example importing an environment variable.
  */
 export const API: string | undefined = process.env.API
-export const API_ID: string = process.env.API_ID || "8c0b0119"
-export const NUTRITION_URL: string = process.env.API_URL || "https://api.edamam.com/search"
-export const NUTRITION_API_KEY: string = process.env.USERNAME || "cc7348e133d5351d10d89cce0e7c9694"
+export const API_ID: string = process.env.API_ID || "3"
+export const URL: string = process.env.API_URL || "http://ba026f93.ngrok.io"
+export const NUTRITION_API_KEY: string = process.env.USERNAME || "xChdYNeHoRKgy67FhV67BlFUo2A2lJi6Xhj3HLI5"

@@ -6,14 +6,14 @@ import { NavigationScreenProps } from "react-navigation"
 import { Screen } from "../shared/screen"
 import { TopNav } from "../shared/top-nav";
 import {color} from "../../theme"
-import { agendaStore } from "../../stores/agendaStore";
+// import { agendaStore } from "../../stores/userStore";
 import { ImageCard } from "../shared/image-card";
 
 import {test_images} from "../shared/image-card/test-images";
 
 
 export interface ProfileScreenProps extends NavigationScreenProps<{}> {
-    agendaStore: agendaStore
+    // agendaStore: agendaStore
 }
 
 
@@ -31,8 +31,8 @@ const SCROLL_SCREEN: ViewStyle = {
     zIndex: 99,
 }
 
-@inject("agendaStore")
-@observer
+// @inject("agendaStore")
+// @observer
 export class ProfileScreen extends React.Component<ProfileScreenProps, {}> {
     constructor(props){
         super(props)
