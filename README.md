@@ -1,4 +1,4 @@
-#  HyperCasual
+#  Wellness App (proof of concept)
 
 [![Build Status](https://semaphoreci.com/api/v1/ir/ignite-ir-boilerplate-bowser/branches/master/badge.svg)](https://semaphoreci.com/ir/ignite-ir-boilerplate-bowser)
 
