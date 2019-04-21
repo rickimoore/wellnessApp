@@ -4,12 +4,14 @@ import { inject, observer } from "mobx-react"
 import { getNavigation, NavigationScreenProp, NavigationState } from "react-navigation"
 import { RootNavigator } from "./root-navigator"
 import { NavigationStore } from "./navigation-store"
+import { PostStore } from "../stores/postStore";
 
 interface StatefulNavigatorProps {
   navigationStore?: NavigationStore
+  postStore?: PostStore
 }
 
-@inject("navigationStore")
+@inject("navigationStore", "postStore")
 @observer
 export class StatefulNavigator extends React.Component<StatefulNavigatorProps, {}> {
   currentNavProp: NavigationScreenProp<NavigationState>

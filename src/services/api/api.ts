@@ -62,7 +62,7 @@ export class Api {
   async registerUser(data) {
     // make the api call
       return axios.post(this.config.url + "/register", data).catch((error) => {
-          console.log(error, "error---")
+          console.log(error.response, "error---lolololol")
       });
   }
 
@@ -85,5 +85,13 @@ export class Api {
       return axios.get(this.config.url + "/api/user", {headers: {'Authorization': 'Bearer ' + accessToken}}).catch((error) => {
           console.log(error.response, "error---")
       });
+  }
+  
+  async fetchFeed(accessToken){
+      return axios.get(this.config.url + "/api/post", {headers: {'Authorization': 'Bearer ' + accessToken}})
+  }
+
+  async postContent(accessToken, content){
+      return axios.post(this.config.url + "/api/post", content,{headers: {'Authorization': 'Bearer ' + accessToken}})
   }
 }

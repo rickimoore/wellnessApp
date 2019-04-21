@@ -15,13 +15,13 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "appIcon@58px.png",
+      "filename" : "appIcon@60px-1.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "appIcon@87px.png",
+      "filename" : "appIcon@80px-1.png",
       "scale" : "3x"
     },
     {
@@ -51,7 +51,7 @@
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "appIcon@1024px.png",
+      "filename" : "appIcon@1024.png",
       "scale" : "1x"
     }
   ],

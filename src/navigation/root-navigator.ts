@@ -12,4 +12,4 @@ export const RootNavigator = createStackNavigator(
     initialRouteName: "onBoarding",
     navigationOptions: { gesturesEnabled: false },
   },
-)
+);

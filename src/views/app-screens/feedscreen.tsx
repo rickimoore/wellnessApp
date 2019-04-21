@@ -11,6 +11,7 @@ import {color} from "../../theme";
 import {Dimensions, StyleSheet, ViewStyle, View, TouchableOpacity, ScrollView} from "react-native";
 import {inject, observer} from "mobx-react";
 import {test_images} from "../shared/image-card/test-images";
+import moment from 'moment';
 
 
 export interface FeedScreenProps extends NavigationScreenProps<{}> {
@@ -33,44 +34,44 @@ const SCROLL_SCREEN: ViewStyle = {
 @observer
 export class FeedScreen extends React.Component<FeedScreenProps> {
     navToPost = (post) => {
-        const store = this.props.newsFeedStore;
-        this.props.navigation.navigate("PostStack");
-
-        console.log(post)
-
-        // store.setActiveFeed(post);
+        this.props.newsFeedStore.setActivePost(post).then(() =>{
+            this.props.navigation.navigate("PostStack")
+        });
         
     };
-    generateItems = () => {
-        const items = Array.from(Array(7).keys());
-        return (
-            items.map((item, index) => {
-                const randomInt = Math.floor(Math.random() * 4);
-                return (
-                    <TouchableOpacity key={index} onPress={() => this.navToPost(item)}>
-                        <View style={styles.cardContainer}>
-                            <View style={styles.cardView}>
-                                <ImageCard style={{width: 120, height: 100}} image={test_images[randomInt]}/>
-                                <View style={styles.cardInfo}>
-                                    <Text>Demo Post</Text>
-                                    <Text style={{fontSize: 10}}>{randomInt + 1} days ago</Text>
-                                </View>
-                            </View>
-                        </View>
-                    </TouchableOpacity>
-                )
-            }
+    calculateTime = (date) => {
+        return moment(date).fromNow()
+    };
+    renderTrendingFeed = () => {
+        const feed = this.props.newsFeedStore.feed;
+
+        if(!feed){
+            return (
+                <View>
+                    <Text>Nothing to show</Text>
+                </View>
             )
-        )
-    }
-    renderFeed = () => {
-        const sections = ["Trending Topics", "What Works", "Plans"]
+        }
         return (
-            sections.map((section, index) => (
-                <View key={index} style={styles.feedSection}>
-                    <Text style={styles.sectionTitle}>{section}</Text>
+            Object.keys(feed).map((key, index) => (
+                <View style={styles.feedSection} key={index}>
+                    <Text style={styles.sectionTitle}>{key}</Text>
                     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-                        {this.generateItems()}
+                        {
+                            feed[key].map((item, index) => (
+                                <TouchableOpacity key={index} onPress={() => this.navToPost(item)}>
+                                    <View style={styles.cardContainer}>
+                                        <View style={styles.cardView}>
+                                            <ImageCard style={{width: 120, height: 100}} image={test_images[item.background_image]}/>
+                                            <View style={styles.cardInfo}>
+                                                <Text>{item.post_name.slice(0, 10) + "..."}</Text>
+                                                <Text style={{fontSize: 10}}>{this.calculateTime(item.created_at)}</Text>
+                                            </View>
+                                        </View>
+                                    </View>
+                                </TouchableOpacity>
+                            ))
+                        }
                     </ScrollView>
                 </View>
             ))
@@ -93,6 +94,14 @@ export class FeedScreen extends React.Component<FeedScreenProps> {
         )
     };
 
+    componentWillMount () {
+        const store = this.props.newsFeedStore;
+
+        if(!store.feed){
+            store.fetchFeed()
+        }
+    }
+
     render(){
         return (
             <Screen preset={"fixed"} backgroundColor={color.palette.white} style={SCREEN}>
@@ -102,7 +111,7 @@ export class FeedScreen extends React.Component<FeedScreenProps> {
                         { this.renderFeedNav() }
                     </View>
                     <View style={styles.feedContainer}>
-                        { this.renderFeed() }
+                        { this.renderTrendingFeed() }
                     </View>
                 </Screen>
             </Screen>

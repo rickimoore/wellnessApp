@@ -11,7 +11,9 @@ export const icons = {
     cartActive: require("./CartActive.png"),
     listIcon: require("./List.png"),
     rightArrow: require("./Right.png"),
-    clear: require("./Clear.png")
+    clear: require("./Clear.png"),
+    postIcon: require("./Plus.png"),
+    postActive: require("./PlusActive.png")
 }
 
 export type IconTypes = keyof typeof icons

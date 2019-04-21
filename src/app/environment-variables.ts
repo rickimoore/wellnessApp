@@ -29,5 +29,5 @@ declare var process: any
  */
 export const API: string | undefined = process.env.API
 export const API_ID: string = process.env.API_ID || "3"
-export const URL: string = process.env.API_URL || "http://ba026f93.ngrok.io"
+export const URL: string = process.env.API_URL || "http://e97f34b8.ngrok.io"
 export const NUTRITION_API_KEY: string = process.env.USERNAME || "xChdYNeHoRKgy67FhV67BlFUo2A2lJi6Xhj3HLI5"

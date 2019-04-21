@@ -13,6 +13,7 @@ import {inject, observer} from "mobx-react";
 import { test_images } from "../shared/image-card/test-images";
 
 
+
 export interface PostScreenProps extends NavigationScreenProps<{}> {
     newsFeedStore: newsFeedStore
 }
@@ -45,17 +46,18 @@ export class PostScreen extends React.Component<PostScreenProps> {
         )
     }
     render(){
+        const store = this.props.newsFeedStore;
         return (
             <Screen preset={"fixed"} backgroundColor={color.palette.white} style={SCREEN}>
                 <TopNav back={() => this.props.navigation.navigate("FeedStack")} style={styles.topNav}/>
                 <View style={styles.postHeadBoard}>
-                    <ImageCard style={styles.postPicture} image={test_images[0]} />
+                    <ImageCard style={styles.postPicture} image={test_images[store.activePost.background_image]} />
                 </View>
                 <Screen preset={"scroll"} style={OVERLAY_SCREEN}>
                     <View style={styles.postCardContainer}>
                         <View style={StyleSheet.flatten([styles.stretchedRow, styles.postHeader])}>
-                            <Text>Sore Throat Remedy</Text>
-                            <Text>1.2K likes</Text>
+                            <Text>{store.activePost.post_name}</Text>
+                            <Text>{store.activePost.likes} likes</Text>
                         </View>
                         <View style={StyleSheet.flatten([styles.stretchedRow, styles.postInfo])}>
                             <View>
@@ -73,7 +75,7 @@ export class PostScreen extends React.Component<PostScreenProps> {
                         </View>
                         <View>
                             <Text style={styles.subTitle}>Description</Text>
-                            <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</Text>
+                            <Text>{store.activePost.description}</Text>
                         </View>
                         <View style={{marginTop: 30}}>
                             <Text style={styles.subTitle}>Instructions</Text>

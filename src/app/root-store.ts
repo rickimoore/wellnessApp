@@ -4,6 +4,7 @@ import { onBoardingStore } from "../stores/onboarding";
 import { userStore } from "../stores/userStore";
 import { nutritionStore } from "../stores/nutritionStore";
 import { newsFeedStore } from "../stores/newsFeedStore";
+import { PostStore } from "../stores/postStore";
 
 /**
  * An RootStore model.
@@ -13,7 +14,8 @@ export const RootStoreModel = types.model("RootStore").props({
     onBoardingStore: types.optional(onBoardingStore, {isValidatedUser: false}),
     userStore: types.optional(userStore, {}),
     nutritionStore: types.optional(nutritionStore, {}),
-    newsFeedStore: types.optional(newsFeedStore, { activeFeed: "list" })
+    newsFeedStore: types.optional(newsFeedStore, { activeFeed: "list" }),
+    postStore: types.optional(PostStore, {isPostModal: false, isCameraRollModal: false})
 })
 
 /**

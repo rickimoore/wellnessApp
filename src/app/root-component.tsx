@@ -61,6 +61,7 @@ export class RootComponent extends React.Component<{}, RootComponentState> {
         userStore: rootStore.userStore,
         nutritionStore: rootStore.nutritionStore,
         newsFeedStore: rootStore.newsFeedStore,
+        postStore: rootStore.postStore,
     }
     // --- am: end list of stores ---
 
